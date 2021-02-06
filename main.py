@@ -1,8 +1,3 @@
-"""Ryan Cameron
-- Personal Notes... Disregard:
-    > There are 3203 pages.
-"""
-
 import requests
 import secrets
 
