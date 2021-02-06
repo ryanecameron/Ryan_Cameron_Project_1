@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2d8dd55-1311-41c0-9299-56c8571fb04a" name="Default Changelist" comment="Initial commit." />
+    <list default="true" id="f2d8dd55-1311-41c0-9299-56c8571fb04a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,7 +33,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="application.passwordSafe" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -71,41 +74,54 @@
       <option name="presentableId" value="Default" />
       <updated>1612388768195</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added field parameter &quot;school.city&quot;">
+      <created>1612626455012</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1612626455012</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit." />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit." />
+    <MESSAGE value="Added field parameter &quot;school.city&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added field parameter &quot;school.city&quot;" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="316" y="0" key="CommitChangelistDialog2" timestamp="1612389530246">
+    <state x="316" y="0" key="CommitChangelistDialog2" timestamp="1612626453293">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="316" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1612389530246" />
+    <state x="316" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1612626453293" />
     <state x="463" y="111" key="FileChooserDialogImpl" timestamp="1612626056339">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="463" y="111" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1612626056339" />
-    <state width="1345" height="182" key="GridCell.Tab.0.bottom" timestamp="1612625363445">
+    <state x="521" y="263" key="Github.ShareDialog" timestamp="1612626960053">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1345" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1612625363445" />
-    <state width="1345" height="182" key="GridCell.Tab.0.center" timestamp="1612625363445">
+    <state x="521" y="263" key="Github.ShareDialog/0.0.1366.738@0.0.1366.738" timestamp="1612626960053" />
+    <state width="1345" height="182" key="GridCell.Tab.0.bottom" timestamp="1612627228972">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1345" height="182" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1612625363445" />
-    <state width="1345" height="182" key="GridCell.Tab.0.left" timestamp="1612625363445">
+    <state width="1345" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1612627228972" />
+    <state width="1345" height="182" key="GridCell.Tab.0.center" timestamp="1612627228972">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1345" height="182" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1612625363445" />
-    <state width="1345" height="182" key="GridCell.Tab.0.right" timestamp="1612625363445">
+    <state width="1345" height="182" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1612627228972" />
+    <state width="1345" height="182" key="GridCell.Tab.0.left" timestamp="1612627228972">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1345" height="182" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1612625363445" />
-    <state x="184" y="12" key="SettingsEditor" timestamp="1612391221910">
+    <state width="1345" height="182" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1612627228972" />
+    <state width="1345" height="182" key="GridCell.Tab.0.right" timestamp="1612627228972">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="184" y="12" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1612391221910" />
+    <state width="1345" height="182" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1612627228972" />
+    <state x="184" y="12" key="SettingsEditor" timestamp="1612626939312">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="184" y="12" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1612626939312" />
     <state x="379" y="194" key="com.intellij.ide.util.TipDialog" timestamp="1612390678986">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
