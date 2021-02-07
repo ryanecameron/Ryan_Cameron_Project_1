@@ -19,6 +19,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1nzN4V0u2nsU81ASAT95u8gefVt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -88,20 +89,28 @@
       <option name="project" value="LOCAL" />
       <updated>1612627296083</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Returns all 3203 pages of data.">
+      <created>1612628272386</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1612628272386</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit." />
     <MESSAGE value="Added field parameter &quot;school.city&quot;" />
     <MESSAGE value="Increased number of pages from 20 to 100" />
-    <option name="LAST_COMMIT_MESSAGE" value="Increased number of pages from 20 to 100" />
+    <MESSAGE value="Returns all 3203 pages of data." />
+    <option name="LAST_COMMIT_MESSAGE" value="Returns all 3203 pages of data." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="316" y="0" key="CommitChangelistDialog2" timestamp="1612627294659">
+    <state x="316" y="0" key="CommitChangelistDialog2" timestamp="1612628271308">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="316" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1612627294659" />
+    <state x="316" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1612628271308" />
     <state x="463" y="111" key="FileChooserDialogImpl" timestamp="1612626056339">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -110,30 +119,38 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="521" y="263" key="Github.ShareDialog/0.0.1366.738@0.0.1366.738" timestamp="1612626960053" />
-    <state width="1345" height="182" key="GridCell.Tab.0.bottom" timestamp="1612628169446">
+    <state width="1345" height="182" key="GridCell.Tab.0.bottom" timestamp="1612669487641">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1345" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1612628169446" />
-    <state width="1345" height="182" key="GridCell.Tab.0.center" timestamp="1612628169446">
+    <state width="1345" height="182" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1612669487641" />
+    <state width="1345" height="182" key="GridCell.Tab.0.center" timestamp="1612669487641">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1345" height="182" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1612628169446" />
-    <state width="1345" height="182" key="GridCell.Tab.0.left" timestamp="1612628169446">
+    <state width="1345" height="182" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1612669487641" />
+    <state width="1345" height="182" key="GridCell.Tab.0.left" timestamp="1612669487641">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1345" height="182" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1612628169446" />
-    <state width="1345" height="182" key="GridCell.Tab.0.right" timestamp="1612628169446">
+    <state width="1345" height="182" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1612669487641" />
+    <state width="1345" height="182" key="GridCell.Tab.0.right" timestamp="1612669487641">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1345" height="182" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1612628169446" />
+    <state width="1345" height="182" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1612669487641" />
     <state x="184" y="12" key="SettingsEditor" timestamp="1612626939312">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="12" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1612626939312" />
+    <state x="275" y="103" key="Vcs.Push.Dialog.v2" timestamp="1612628964849">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="275" y="103" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1612628964849" />
     <state x="379" y="194" key="com.intellij.ide.util.TipDialog" timestamp="1612390678986">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="379" y="194" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1612390678986" />
+    <state x="492" y="287" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612628915831">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="492" y="287" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.738@0.0.1366.738" timestamp="1612628915831" />
     <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1612625031676">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
