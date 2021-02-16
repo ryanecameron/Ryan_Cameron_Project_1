@@ -1,5 +1,6 @@
 import requests
-import json
+import sqlite3
+from typing import Tuple
 import secrets
 
 
@@ -19,6 +20,27 @@ def get_data(url: str):
         final_data.extend(page_data)
     return final_data
 
+def open_db(filename: str) ->Tuple[sqlite3.Connection,sqlite3.Cursor]:
+    db_connection =sqlite3.connect(filename)
+    cursor = db_connection.cursor()
+    return db_connection, cursor
+
+def close_db(connection: sqlite3.Connection):
+    connection.commit()
+    connection.close()
+
+def setup_db(cursor: sqlite3.Cursor):
+    cursor.execute('''CREATE TABLE IF NOT EXISTS schools(
+        first_name TEXT NOT NULL,
+        last_name TEXT NOT NULL,
+        gpa REAL DEFAULT 0,
+        credits INTEGER DEFAULT 0
+        );''')
+
+
+
+
+
 
 
 def main():
@@ -29,6 +51,14 @@ def main():
     for school_data in all_data:
         print(line_counter, ": ", school_data)
         line_counter += 1
+
+    conn, cursor = open_db("collegescorecard.sqlite")
+    print(type(conn))
+    setup_db(cursor)
+    close_db(conn)
+
+
+
 
 
 if __name__ == '__main__':
