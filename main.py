@@ -3,9 +3,11 @@ import sqlite3
 from typing import Tuple
 import secrets
 
+final_data = []
+
 
 def get_data(url: str):
-    final_data = []
+    # final_data = []
     # There are 3203 pages of data.
     # For loop iterates 161 times, printing 20 pages per iteration and 3 pages
     # for the final iteration.
@@ -20,31 +22,52 @@ def get_data(url: str):
         final_data.extend(page_data)
     return final_data
 
-def open_db(filename: str) ->Tuple[sqlite3.Connection,sqlite3.Cursor]:
-    db_connection =sqlite3.connect(filename)
+
+def open_db(filename: str) -> Tuple[sqlite3.Connection, sqlite3.Cursor]:
+    db_connection = sqlite3.connect(filename)
     cursor = db_connection.cursor()
     return db_connection, cursor
+
 
 def close_db(connection: sqlite3.Connection):
     connection.commit()
     connection.close()
 
+
 def setup_db(cursor: sqlite3.Cursor):
     cursor.execute('''CREATE TABLE IF NOT EXISTS schools(
-        first_name TEXT NOT NULL,
-        last_name TEXT NOT NULL,
-        gpa REAL DEFAULT 0,
-        credits INTEGER DEFAULT 0
+        earnings_2017 INTEGER,
+        school_name TEXT NOT NULL,
+        student_size_2017 INTEGER,
+        student_size_2018 INTEGER,
+        school_state TEXT NOT NULL,
+        school_id INTEGER,
+        school_city TEXT NOT NULL,
+        repayment_2016 INTEGER
         );''')
 
 
 
-
-
+def make_initial_schools(cursor: sqlite3.Cursor):
+    for i in range(len(final_data)):
+        data = final_data[i]
+        cursor.execute('''INSERT INTO schools VALUES(?,?,?,?,?,?,?,?)''',
+                       [data['2017.earnings.3_yrs_after_completion.overall_count_over_poverty_line'],
+                        data['school.name'],
+                        data['2017.student.size'],
+                        data['2018.student.size'],
+                        data['school.state'],
+                        data['id'],
+                        data['school.city'],
+                        data['2016.repayment.3_yr_repayment.overall']]
+                       )
 
 
 def main():
-    url = "https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees_awarded.predominant=2,3&fields=id,school.state,school.name,school.city,2018.student.size,2017.student.size,2017.earnings.3_yrs_after_completion.overall_count_over_poverty_line,2016.repayment.3_yr_repayment.overall"
+    url = (f"https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees_awarded.predominant=2,3&fields=id,"
+           f"school.state,school.name,school.city,2018.student.size,2017.student.size,"
+           f"2017.earnings.3_yrs_after_completion.overall_count_over_poverty_line,"
+           f"2016.repayment.3_yr_repayment.overall")
     all_data = get_data(url)
     line_counter = 1
     # For loop returns results by line, with line number
@@ -55,10 +78,8 @@ def main():
     conn, cursor = open_db("collegescorecard.sqlite")
     print(type(conn))
     setup_db(cursor)
+    make_initial_schools(cursor)
     close_db(conn)
-
-
-
 
 
 if __name__ == '__main__':

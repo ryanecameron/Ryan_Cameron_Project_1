@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2d8dd55-1311-41c0-9299-56c8571fb04a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/test_prod.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Ryan_Cameron_Project_1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Ryan_Cameron_Project_1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collegescorecard.sqlite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_prod.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_prod.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +44,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable" />
   </component>
-  <component name="RunManager" selected="Python tests.pytest for test_prod.test_get_data">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Ryan_Cameron_Project_1" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -85,8 +86,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest for test_prod.test_get_data" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python tests.pytest for test_prod.test_get_data" />
       </list>
     </recent_temporary>
   </component>
@@ -102,7 +103,7 @@
       <option name="presentableId" value="Default" />
       <updated>1612388768195</updated>
       <workItem from="1613061827366" duration="8836000" />
-      <workItem from="1613506084910" duration="1916000" />
+      <workItem from="1613506084910" duration="11173000" />
     </task>
     <task id="LOCAL-00001" summary="Added field parameter &quot;school.city&quot;">
       <created>1612626455012</created>
@@ -160,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613501967769</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Created first automated test for get_data() function">
+      <created>1613525434751</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1613525434751</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,10 +182,11 @@
     <MESSAGE value="Added all required field parameters" />
     <MESSAGE value="Adjusted pages printed per iteration, and added line number" />
     <MESSAGE value="Added methods open_db, close_db, and setup_db&#10;Created initial database" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added methods open_db, close_db, and setup_db&#10;Created initial database" />
+    <MESSAGE value="Created first automated test for get_data() function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created first automated test for get_data() function" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$pytest_for_test_prod_test_get_data.coverage" NAME="pytest for test_prod.test_get_data Coverage Results" MODIFIED="1613524831515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$main.coverage" NAME="main Coverage Results" MODIFIED="1613523973596" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$main.coverage" NAME="main Coverage Results" MODIFIED="1613604004200" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
