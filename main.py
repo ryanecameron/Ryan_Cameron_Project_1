@@ -50,16 +50,16 @@ def setup_db(cursor: sqlite3.Cursor):
 
 def make_initial_schools(cursor: sqlite3.Cursor):
     for i in range(len(final_data)):
-        data = final_data[i]
+        db_data = final_data[i]
         cursor.execute('''INSERT INTO schools VALUES(?,?,?,?,?,?,?,?)''',
-                       [data['2017.earnings.3_yrs_after_completion.overall_count_over_poverty_line'],
-                        data['school.name'],
-                        data['2017.student.size'],
-                        data['2018.student.size'],
-                        data['school.state'],
-                        data['id'],
-                        data['school.city'],
-                        data['2016.repayment.3_yr_repayment.overall']]
+                       [db_data['2017.earnings.3_yrs_after_completion.overall_count_over_poverty_line'],
+                        db_data['school.name'],
+                        db_data['2017.student.size'],
+                        db_data['2018.student.size'],
+                        db_data['school.state'],
+                        db_data['id'],
+                        db_data['school.city'],
+                        db_data['2016.repayment.3_yr_repayment.overall']]
                        )
 
 
