@@ -64,6 +64,7 @@ def make_initial_schools(cursor: sqlite3.Cursor):
 
 
 def main():
+    # workflow comment
     url = (f"https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees_awarded.predominant=2,3&fields=id,"
            f"school.state,school.name,school.city,2018.student.size,2017.student.size,"
            f"2017.earnings.3_yrs_after_completion.overall_count_over_poverty_line,"
