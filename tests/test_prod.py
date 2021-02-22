@@ -1,10 +1,5 @@
-import pytest
-
 import main
 import secrets
-import sqlite3
-
-"""TODO: -Retrieve data from web"""
 
 
 def test_get_data():
@@ -17,19 +12,13 @@ def test_get_data():
     assert len(results) > 0
 
 
-"""TODO:    -Create new empty database
-            -Run table creation function/method
-            -Run save data to database method
-            -Check to see that database contains test university"""
-
-
 def test_create_empty_database():
-
     conn, cursor = main.open_db("test_db.sqlite")
     main.open_db("test_db.sqlite")
     cursor.execute('''SELECT name FROM sqlite_master''')
     results = cursor.fetchall()
     assert results == []
+
 
 def test_table_create():
     results = main.get_data(

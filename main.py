@@ -34,7 +34,7 @@ def close_db(connection: sqlite3.Connection):
     connection.close()
 
 
-def setup_db(cursor: sqlite3.Cursor):
+def setup_school_db(cursor: sqlite3.Cursor):
     cursor.execute('''CREATE TABLE IF NOT EXISTS schools(
         earnings_2017 INTEGER,
         school_name TEXT NOT NULL,
@@ -45,6 +45,15 @@ def setup_db(cursor: sqlite3.Cursor):
         school_city TEXT NOT NULL,
         repayment_2016 INTEGER
         );''')
+    
+def setup_state_db(cursor: sqlite3.Cursor):
+    cursor.execute('''CREATE TABLE IF NOT EXISTS states(
+    state TEXT,
+    occupation TEXT,
+    total_employment INTEGER,
+    25th_percentile_salary INTEGER,
+    occupation_code TEXT
+    );''')
 
 
 
@@ -77,7 +86,7 @@ def main():
 
     conn, cursor = open_db("collegescorecard.sqlite")
     print(type(conn))
-    setup_db(cursor)
+    setup_school_db(cursor)
     make_initial_schools(cursor)
     close_db(conn)
 
