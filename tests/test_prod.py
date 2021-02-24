@@ -35,5 +35,12 @@ def test_table_create():
     assert result == ('Olympic College',)
 
 
+def test_work_book():
+    dataframe = main.open_workbook()
+    results = dataframe.empty
+
+    assert results == False
+
+
 
 

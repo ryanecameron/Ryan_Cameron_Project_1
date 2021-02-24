@@ -1,16 +1,16 @@
-import requests
-import sqlite3
 from typing import Tuple
+import pandas as pd
+import requests
 import secrets
+import sqlite3
+import openpyxl
 
+#excel_file = "PATH "
+excel_file = "state_M2019_dl.xlsx"
 final_data = []
 
 
 def get_data(url: str):
-    # final_data = []
-    # There are 3203 pages of data.
-    # For loop iterates 161 times, printing 20 pages per iteration and 3 pages
-    # for the final iteration.
     for pages in range(161):
         final_url = f"{url}&api_key={secrets.api_key}&page={pages}"
         response = requests.get(final_url)
@@ -35,7 +35,8 @@ def close_db(connection: sqlite3.Connection):
 
 
 def setup_school_db(cursor: sqlite3.Cursor):
-    cursor.execute('''CREATE TABLE IF NOT EXISTS schools(
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS schools(
         earnings_2017 INTEGER,
         school_name TEXT NOT NULL,
         student_size_2017 INTEGER,
@@ -44,23 +45,17 @@ def setup_school_db(cursor: sqlite3.Cursor):
         school_id INTEGER,
         school_city TEXT NOT NULL,
         repayment_2016 INTEGER
-        );''')
-    
-def setup_state_db(cursor: sqlite3.Cursor):
-    cursor.execute('''CREATE TABLE IF NOT EXISTS states(
-    state TEXT,
-    occupation TEXT,
-    total_employment INTEGER,
-    25th_percentile_salary INTEGER,
-    occupation_code TEXT
-    );''')
-
+        );
+        '''
+                   )
 
 
 def make_initial_schools(cursor: sqlite3.Cursor):
-    for i in range(len(final_data)):
-        db_data = final_data[i]
-        cursor.execute('''INSERT INTO schools VALUES(?,?,?,?,?,?,?,?)''',
+    for idx in final_data:
+        db_data = final_data[idx]
+        cursor.execute('''
+                    INSERT INTO schools VALUES(?,?,?,?,?,?,?,?)
+                    ''',
                        [db_data['2017.earnings.3_yrs_after_completion.overall_count_over_poverty_line'],
                         db_data['school.name'],
                         db_data['2017.student.size'],
@@ -72,15 +67,41 @@ def make_initial_schools(cursor: sqlite3.Cursor):
                        )
 
 
-def main():
-    # workflow comment
+def open_workbook():
+    rows = ['area_title', 'occ_code', 'occ_title', 'tot_emp', 'h_pct25', 'a_pct25']
+    dataframe = pd.read_excel(excel_file, usecols=rows, engine='openpyxl')
+    return dataframe
+
+
+def setup_state_db(cursor: sqlite3.Cursor):
+    cursor.execute(
+        '''
+    CREATE TABLE IF NOT EXISTS states (
+        area_title TEXT NOT NULL ,
+        occ_code TEXT NOT NULL,
+        occ_title TEXT NOT NULL,
+        tot_emp INTEGER,
+        h_pct25 DOUBLE,
+        a_pct25 DOUBLE
+    );
+    '''
+               )
+
+
+def make_initial_state_emp():
+    conn, cursor = open_db("collegescorecard.sqlite")
+    dataframe = open_workbook()
+    dataframe.to_sql('states', conn, if_exists='append', index=False)
+
+
+def execute_school_db():
     url = (f"https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees_awarded.predominant=2,3&fields=id,"
            f"school.state,school.name,school.city,2018.student.size,2017.student.size,"
            f"2017.earnings.3_yrs_after_completion.overall_count_over_poverty_line,"
            f"2016.repayment.3_yr_repayment.overall")
     all_data = get_data(url)
     line_counter = 1
-    # For loop returns results by line, with line number
+
     for school_data in all_data:
         print(line_counter, ": ", school_data)
         line_counter += 1
@@ -90,6 +111,19 @@ def main():
     setup_school_db(cursor)
     make_initial_schools(cursor)
     close_db(conn)
+
+
+def execute_state_emp_db():
+    conn, cursor = open_db("collegescorecard.sqlite")
+    setup_state_db(cursor)
+    make_initial_state_emp()
+    close_db(conn)
+
+
+def main():
+    # workflow comment
+    execute_school_db()
+    execute_state_emp_db()
 
 
 if __name__ == '__main__':
