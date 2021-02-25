@@ -1,4 +1,3 @@
 requests
 pandas
-Sqlite3
 openpyxl
