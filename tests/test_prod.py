@@ -25,7 +25,7 @@ def test_table_create():
         f"https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees_awarded.predominant=2,3&fields="
         f"school.name&api_key={secrets.api_key}")
     conn, cursor = main.open_db("test_db.sqlite")
-    main.setup_db(cursor)
+    main.setup_school_db(cursor)
     cursor.execute('''CREATE TABLE IF NOT EXISTS test_school(
         test TEXT
         );''')
