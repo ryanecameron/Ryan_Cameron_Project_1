@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f2d8dd55-1311-41c0-9299-56c8571fb04a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collegescorecard.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/collegescorecard.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collegescorecard.sqlite" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_prod.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_prod.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +34,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pythonProject1" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -242,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613624146404</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Created methods: open_workbook(),create_state_db(),and make_initial_state_emp().&#10;Created test for open_workbook()">
+      <created>1614189955109</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1614189955109</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,13 +265,14 @@
     <MESSAGE value="Created first automated test for get_data() function" />
     <MESSAGE value="Created database with API data" />
     <MESSAGE value="Created second test (Currently not working)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created second test (Currently not working)" />
+    <MESSAGE value="Created methods: open_workbook(),create_state_db(),and make_initial_state_emp().&#10;Created test for open_workbook()" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created methods: open_workbook(),create_state_db(),and make_initial_state_emp().&#10;Created test for open_workbook()" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$pytest_for_test_prod_test_create_database.coverage" NAME="pytest for test_prod.test_create_database Coverage Results" MODIFIED="1613620403241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$pytest_for_test_prod_test_work_book.coverage" NAME="pytest for test_prod.test_work_book Coverage Results" MODIFIED="1614188373122" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$pytest_for_test_prod_test_get_data.coverage" NAME="pytest for test_prod.test_get_data Coverage Results" MODIFIED="1613524831515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$main.coverage" NAME="main Coverage Results" MODIFIED="1614189305125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$main.coverage" NAME="main Coverage Results" MODIFIED="1614275122913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$pytest_for_test_prod_test_table_create.coverage" NAME="pytest for test_prod.test_table_create Coverage Results" MODIFIED="1614138184372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$pytest_for_test_prod_test_create_empty_database.coverage" NAME="pytest for test_prod.test_create_empty_database Coverage Results" MODIFIED="1613622194951" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
   </component>
