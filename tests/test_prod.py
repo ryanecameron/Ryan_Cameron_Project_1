@@ -1,9 +1,10 @@
 import main
 import secrets
-
+import pandas as pd
+import pytest
 
 def test_get_data():
-    #This test will check if the 100th page, or 1000th result is empty.
+    # This test will check if the 100th page, or 1000th result is empty.
     results = main.get_data(
         f"https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees_awarded.predominant=2,3&fields=id,"
         f"school.state,school.name,school.city,2018.student.size,2017.student.size,"
@@ -20,7 +21,7 @@ def test_create_empty_database():
     assert results == []
 
 
-def test_table_create():
+def test_schools_table_create():
     results = main.get_data(
         f"https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees_awarded.predominant=2,3&fields="
         f"school.name&api_key={secrets.api_key}")
@@ -42,5 +43,15 @@ def test_work_book():
     assert results == False
 
 
+def create_test_excel():
+    dataframe = main.open_workbook()
+    writer = pd.ExcelWriter('test_excel.xlsx', engine='xlsxwriter')
+    cols = ['area_title', 'tot_emp']
+    test_excel = dataframe.to_excel(writer, columns=cols)
+    return test_excel
 
 
+def test_create_table():
+    results = create_test_excel()
+
+    assert results == None
