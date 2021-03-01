@@ -1,7 +1,6 @@
 import main
 import secrets
 import pandas as pd
-import pytest
 
 def test_get_data():
     # This test will check if the 100th page, or 1000th result is empty.
@@ -36,22 +35,17 @@ def test_schools_table_create():
     assert result == ('Olympic College',)
 
 
-def test_work_book():
+
+''' The function test_open_workbook() will check whether the number of rows and columns
+    of the dataframe corresponds with the excel file.
+    If the test passes, that concludes that all rows and columns have been extracted from 
+    the excel file, as well as the data from all 50 states.
+'''
+def test_open_workbook():
     dataframe = main.open_workbook()
-    results = dataframe.empty
+    results_rows = dataframe.shape[0]
+    results_cols = dataframe.shape[1]
 
-    assert results == False
+    assert results_rows == 36382
+    assert results_cols == 7
 
-
-def create_test_excel():
-    dataframe = main.open_workbook()
-    writer = pd.ExcelWriter('test_excel.xlsx', engine='xlsxwriter')
-    cols = ['area_title', 'tot_emp']
-    test_excel = dataframe.to_excel(writer, columns=cols)
-    return test_excel
-
-
-def test_create_table():
-    results = create_test_excel()
-
-    assert results == None
