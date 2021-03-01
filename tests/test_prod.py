@@ -1,6 +1,5 @@
 import main
 import secrets
-import pandas as pd
 
 def test_get_data():
     # This test will check if the 100th page, or 1000th result is empty.
@@ -40,6 +39,8 @@ def test_schools_table_create():
     of the dataframe corresponds with the excel file.
     If the test passes, that concludes that all rows and columns have been extracted from 
     the excel file, as well as the data from all 50 states.
+    *This does not test that the function only collects data only where 'o_group' is 'major'.
+    That filter is applied when the data is added to database.*
 '''
 def test_open_workbook():
     dataframe = main.open_workbook()
@@ -49,3 +50,37 @@ def test_open_workbook():
     assert results_rows == 36382
     assert results_cols == 7
 
+
+
+''' The function test_create_table_states() will only test that an empty table 
+    has been created for the data from the excel file.
+'''
+def test_create_table_states():
+    results = main.open_workbook()
+    conn, cursor = main.open_db('test_db.sqlite')
+    main.setup_state_db(cursor)
+    cursor.execute('''CREATE TABLE IF NOT EXISTS test_states(
+            area_title TEXT NOT NULL ,
+        occ_code TEXT NOT NULL,
+        occ_title TEXT NOT NULL,
+        o_group TEXT NOT NULL,
+        tot_emp INTEGER,
+        h_pct25 DOUBLE,
+        a_pct25 DOUBLE
+            );''')
+    cursor.execute('''SELECT * FROM test_school''')
+    result = cursor.fetchone()
+    assert result == None
+
+
+def test_write_to_state_db():
+    conn, cursor = main.open_db('test_db.sqlite')
+    dataframe = main.open_workbook()
+    dataframe = dataframe.loc[dataframe['o_group'] == 'major']
+    dataframe.to_sql('test_states', conn, if_exists='append', index=False)
+
+
+    cursor.execute('''SELECT area_title FROM test_states''')
+    result = cursor.fetchone()
+
+    assert result == ('Alabama',)
