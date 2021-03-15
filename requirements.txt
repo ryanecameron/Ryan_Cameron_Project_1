@@ -1,4 +1,4 @@
 requests
 pandas
 openpyxl
-PySide2.QtWidgets
+PySide2
