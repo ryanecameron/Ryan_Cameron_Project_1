@@ -47,7 +47,7 @@ def test_open_workbook():
     results_rows = dataframe.shape[0]
     results_cols = dataframe.shape[1]
 
-    assert results_rows == 36382
+    assert results_rows == 1187
     assert results_cols == 7
 
 

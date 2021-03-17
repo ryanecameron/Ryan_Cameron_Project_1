@@ -8,9 +8,11 @@ import sys
 import PySide2.QtWidgets
 from PySide2.QtWidgets import QApplication
 import window
+import us_state_abrev
 
 
-# college grads = student.size.2018 / 4
+
+
 
 # excel_file = "PATH "
 excel_file = "state_M2019_dl.xlsx"
@@ -18,15 +20,23 @@ final_data = []
 
 
 def get_data(url: str):
-    for pages in range(161):
-        final_url = f"{url}&api_key={secrets.api_key}&page={pages}"
-        response = requests.get(final_url)
+    final_url = f"{url}&api_key={secrets.api_key}"
+    response = requests.get(final_url)
+    json_data = response.json()
+    total_pages = json_data['metadata']['total']
+    per_page = json_data['metadata']['per_page']
+    pages_to_iterate = (total_pages//per_page) + 1
+
+    for page in range(pages_to_iterate):
+        current_url = f"{url}&api_key={secrets.api_key}&page={page}"
+        response = requests.get(current_url)
         if response.status_code != 200:
             print(response.text)
             return []
-        json_data = response.json()
-        page_data = json_data["results"]
+        current_page_json = response.json()
+        page_data = current_page_json["results"]
         final_data.extend(page_data)
+        page += 1
     return final_data
 
 
@@ -145,8 +155,76 @@ def data_frame_to_list(dataframe):
 
     return dict_list
 
+def compare_school_data_with_state_data():
+    comparison = []
+    states_list = us_state_abrev.list_of_state_abbrev
+    for states in states_list:
+        jobs_dict = get_jobs_in_a_state(states)
+        students_dict = get_college_students_in_a_state(states)
+        jobs_dict.update(students_dict)
+        jobs_dict["More Jobs than Students"] = round((jobs_dict['jobs'] / jobs_dict['students']),2)
+        comparison.append(jobs_dict)
+    return comparison
+
+
+def get_college_students_in_a_state(state):
+    students_in_state = 0
+    state = "'" + state + "'"
+    conn, cursor = open_db("collegescorecard.sqlite")
+
+    cursor.execute(f'''SELECT student_size_2018
+                        FROM schools
+                        WHERE school_state = {state}''')
+    school_state = cursor.fetchall()
+
+    for data in school_state:
+        num = []
+        data = str(data)
+        for char in data:
+            if char.isdigit():
+                num.append(char)
+            else:
+                continue
+
+        if num:
+            students_in_state = students_in_state + int(''.join(num))
+    state = state.replace('"', '')
+    final_students_in_state = {'state': state, "students": int(students_in_state//4), "More Jobs than Students": 0 }
+    return final_students_in_state
+
+
+def get_jobs_in_a_state(state):
+    state = state
+    num_jobs = []
+    jobs_in_state = 0
+    final_jobs_in_state = {}
+    onn, cursor = open_db("collegescorecard.sqlite")
+    abbrev_of_state = us_state_abrev.abbrev_us_state[state]
+    abbrev_of_state = "'" + abbrev_of_state + "'"
+
+    cursor.execute(f'''SELECT tot_emp,occ_code
+                            FROM states
+                            WHERE area_title = {abbrev_of_state}''')
+
+    jobs_in_state = cursor.fetchall()
+    for jobs in jobs_in_state:
+        job_digits = jobs[1]
+        if int(job_digits[0]) == 3 or int(job_digits[0]) == 4:
+            continue
+        else:
+            jobs_data = jobs[0]
+            num_jobs.append(jobs_data)
+    jobs_in_state = (sum(num_jobs))
+    state = ("'" + state + "'")
+    final_jobs_in_state = {'state': state, "jobs": int(jobs_in_state), "More Jobs than Students": 0}
+    return final_jobs_in_state
+
 
 def display_data(data):
+    '''app = PySide2.QtWidgets.QApplication(sys.argv)
+    win = visualizer_window.Visualizer_window(data)
+    sys.exit(app.exec_())'''
+
     app = PySide2.QtWidgets.QApplication(sys.argv)
     win = window.Window(data)
     sys.exit(app.exec_())
@@ -160,11 +238,12 @@ def main():
     #execute_school_db()
     #execute_state_db()
 
-    data = data_frame_to_list(open_workbook())
+    data = compare_school_data_with_state_data()
     #print(data)
     display_data(data)
-
-
+    #print(get_college_students_in_a_state('MA'))
+    #print(get_jobs_in_a_state('MA'))
+    #print(compare_school_data_with_state_data())
 
 if __name__ == '__main__':
     main()
