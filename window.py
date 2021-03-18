@@ -19,7 +19,7 @@ class Window(QWidget):
     def setup_Window(self):
         self.setWindowTitle("Data Visualizer")
         display_list = QListWidget(self)
-        display_list.resize(600,600)
+        display_list.resize(510,510)
         self.list_control = display_list
         self.add_data_to_list_ascending(self.data)
 

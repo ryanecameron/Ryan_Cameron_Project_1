@@ -9,6 +9,7 @@ import PySide2.QtWidgets
 from PySide2.QtWidgets import QApplication
 import window
 import us_state_abrev
+import test_gui
 
 
 
@@ -241,6 +242,7 @@ def main():
     data = compare_school_data_with_state_data()
     #print(data)
     display_data(data)
+    #test_gui(data)
     #print(get_college_students_in_a_state('MA'))
     #print(get_jobs_in_a_state('MA'))
     #print(compare_school_data_with_state_data())
