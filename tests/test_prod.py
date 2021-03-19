@@ -29,7 +29,7 @@ def test_create_database():
     main.open_db("test_db.sqlite")
     cursor.execute('''SELECT name FROM sqlite_master''')
     results = cursor.fetchall()
-    assert results != []
+    assert results == []
 
 
 def test_schools_table_create():

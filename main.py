@@ -239,11 +239,19 @@ def get_school_3_year_cohort(state, database):
                             WHERE school_state = {state}''')
     school_state = cursor.fetchall()
     number_of_schools = len(school_state)
+    num = []
+    for data in school_state:
+        item = str(data).replace(",",'')
+        item.replace('(','')
+        item.replace(')','')
+        final_item = float(item)
+        num.append(final_item)
+
 
     #num = list(sum(school_state))
     #average = num / number_of_schools
     #state_cohort_average_dict = {'state': state, "cohort": average, "Cohort/25% Salary": 0}
-    return number_of_schools
+    return num
 
 
 
