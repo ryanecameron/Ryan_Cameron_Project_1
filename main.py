@@ -220,13 +220,49 @@ def get_jobs_in_a_state(state, database):
     final_jobs_in_state = {'state': state, "jobs": int(jobs_in_state), "More Jobs than Students": 0}
     return final_jobs_in_state
 
-def get_compare_school_data_with_state_data():
-    results = compare_school_data_with_state_data()
-    specific_results = results['state']
-    return results
+def compare_3_yr_grad_cohort_and_25_pct_salary(database):
+    comparison = []
+    states_list = us_state_abrev.list_of_state_abbrev
+    for states in states_list:
+        cohort_dict = get_school_3_year_cohort(states, database)
+        pct_25_dict = get_25_pct_salary(states, database)
+        pct_25_dict.update(cohort_dict)
+        pct_25_dict["Cohort/25% Salary"] = int( pct_25_dict['salary'] /pct_25_dict['cohort'] )
+        comparison.append(pct_25_dict)
+    return comparison
 
-def compare_3_yr_grad_cohort_and_25_pct_salary():
-    pass
+def get_25_pct_salary(state, database):
+    state = state
+    num_jobs = []
+    jobs_in_state = 0
+    final_jobs_in_state = {}
+    conn, cursor = open_db(database)
+    abbrev_of_state = us_state_abrev.abbrev_us_state[state]
+    abbrev_of_state = "'" + abbrev_of_state + "'"
+
+    cursor.execute(f'''SELECT a_pct25
+                                FROM states
+                                WHERE area_title = {abbrev_of_state}''')
+    state_pct25 = cursor.fetchall()
+    num_state = len(state_pct25)
+    list_of_salary = []
+    for data in state_pct25:
+        num = []
+        data = str(data)
+        for char in data:
+            if char.isdigit() or char ==".":
+                num.append(char)
+            else:
+                continue
+
+        if num:
+            parse_data = ''.join(num)
+            parse_data =float(parse_data)
+            list_of_salary.append(parse_data)
+    total_salary = sum(list_of_salary)
+    average = round(total_salary / num_state, 2)
+    state_salary_average_dict = {'state': state, "salary": average, "Cohort/25% Salary": 0}
+    return state_salary_average_dict
 
 
 def get_school_3_year_cohort(state, database):
@@ -239,19 +275,26 @@ def get_school_3_year_cohort(state, database):
                             WHERE school_state = {state}''')
     school_state = cursor.fetchall()
     number_of_schools = len(school_state)
-    num = []
+    list_of_cohorts = []
     for data in school_state:
-        item = str(data).replace(",",'')
-        item.replace('(','')
-        item.replace(')','')
-        final_item = float(item)
-        num.append(final_item)
+        num = []
+        data = str(data)
+        for char in data:
+            if char.isdigit() or char ==".":
+                num.append(char)
+            else:
+                continue
+
+        if num:
+            parse_data = ''.join(num)
+            parse_data =float(parse_data)
+            list_of_cohorts.append(parse_data)
 
 
-    #num = list(sum(school_state))
-    #average = num / number_of_schools
-    #state_cohort_average_dict = {'state': state, "cohort": average, "Cohort/25% Salary": 0}
-    return num
+    total_cohort = sum(list_of_cohorts)
+    average = round(total_cohort / number_of_schools,2)
+    state_cohort_average_dict = {'state': state, "cohort": average, "Cohort/25% Salary": 0}
+    return state_cohort_average_dict
 
 
 
@@ -261,6 +304,6 @@ def main():
     #execute_school_db(current_database)
     #execute_state_db(current_database)
     #print(compare_school_data_with_state_data(current_database))
-    print(get_school_3_year_cohort('MA', current_database))
+    print(compare_3_yr_grad_cohort_and_25_pct_salary(current_database))
 if __name__ == '__main__':
     main()
