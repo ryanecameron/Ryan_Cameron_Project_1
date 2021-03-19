@@ -6,15 +6,20 @@ import sqlite3
 import openpyxl
 import us_state_abrev
 import main_window_stacked
+import plotly.express
+from plotly.offline import *
+import plotly.graph_objs as graph
+import string
 
 
-
-
-
-current_database = ("collegescorecard.sqlite")
+current_database = "collegescorecard.sqlite"
 # excel_file = "PATH "
 excel_file = "state_M2019_dl.xlsx"
 final_data = []
+current_url = (f"https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees_awarded.predominant=2,3&fields=id,"
+           f"school.state,school.name,school.city,2018.student.size,2017.student.size,"
+           f"2017.earnings.3_yrs_after_completion.overall_count_over_poverty_line,"
+           f"2016.repayment.3_yr_repayment.overall,2016.repayment.repayment_cohort.3_year_declining_balance")
 
 
 def get_data(url: str):
@@ -119,10 +124,7 @@ def make_initial_state(database):
 
 def execute_school_db(database):
     database = current_database
-    url = (f"https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees_awarded.predominant=2,3&fields=id,"
-           f"school.state,school.name,school.city,2018.student.size,2017.student.size,"
-           f"2017.earnings.3_yrs_after_completion.overall_count_over_poverty_line,"
-           f"2016.repayment.3_yr_repayment.overall,2016.repayment.repayment_cohort.3_year_declining_balance")
+    url = current_url
     all_data = get_data(url)
     line_counter = 1
 
@@ -296,6 +298,28 @@ def get_school_3_year_cohort(state, database):
     state_cohort_average_dict = {'state': state, "cohort": average, "Cohort/25% Salary": 0}
     return state_cohort_average_dict
 
+def create_map():
+    data = compare_3_yr_grad_cohort_and_25_pct_salary(current_database)
+    for item in data:
+        state = item['state']
+        str(state)
+        state.translate(str.maketrans('','',string.punctuation))
+        print(state)
+    dataframe = pd.DataFrame(data)
+    #print(dataframe.head())
+    #print(dataframe["Cohort/25% Salary"])
+    fig = plotly.express.choropleth(dataframe,
+                                    locations='state',
+                                    featureidkey='Cohort/25% Salary.state',
+                                    color='Cohort/25% Salary',
+                                    scope="usa",
+                                    hover_name= 'state',
+                                    range_color=(0,110000))
+    #plotly.offline.plot(fig, filename='map.html', auto_open=True)
+
+
+    #return dataframe
+
 
 
 
@@ -304,6 +328,7 @@ def main():
     #execute_school_db(current_database)
     #execute_state_db(current_database)
     #print(compare_school_data_with_state_data(current_database))
-    print(compare_3_yr_grad_cohort_and_25_pct_salary(current_database))
+    #print(compare_3_yr_grad_cohort_and_25_pct_salary(current_database))
+    create_map()
 if __name__ == '__main__':
     main()
