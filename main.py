@@ -327,11 +327,7 @@ def create_map():
 
 
 def main():
-    #main_window_stacked.main()
-    #execute_school_db(current_database)
-    #execute_state_db(current_database)
-    #print(compare_school_data_with_state_data(current_database))
-    #print(compare_3_yr_grad_cohort_and_25_pct_salary(current_database))
-    create_map()
+    main_window_stacked.main()
+
 if __name__ == '__main__':
     main()
