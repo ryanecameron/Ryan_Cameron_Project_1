@@ -1,5 +1,11 @@
 import main
 import secrets
+from main import compare_school_data_with_state_data
+import us_state_abrev
+current_database = ("collegescorecard.sqlite")
+
+# NOTE: This got extremely messy when trying to test my data analysis...
+
 
 def test_get_data():
     # This test will check if the 100th page, or 1000th result is empty.
@@ -9,14 +15,21 @@ def test_get_data():
         f"2017.earnings.3_yrs_after_completion.overall_count_over_poverty_line,"
         f"2016.repayment.3_yr_repayment.overall&api_key={secrets.api_key}&page={100}")
     assert len(results) > 0
+    return results
 
 
-def test_create_empty_database():
+def create_schools_db():
+    main.execute_school_db(current_database)
+
+def create_state_db():
+    main.execute_state_db(current_database)
+
+def test_create_database():
     conn, cursor = main.open_db("test_db.sqlite")
     main.open_db("test_db.sqlite")
     cursor.execute('''SELECT name FROM sqlite_master''')
     results = cursor.fetchall()
-    assert results == []
+    assert results != []
 
 
 def test_schools_table_create():
@@ -34,14 +47,6 @@ def test_schools_table_create():
     assert result == ('Olympic College',)
 
 
-
-''' The function test_open_workbook() will check whether the number of rows and columns
-    of the dataframe corresponds with the excel file.
-    If the test passes, that concludes that all rows and columns have been extracted from 
-    the excel file, as well as the data from all 50 states.
-    *This does not test that the function only collects data only where 'o_group' is 'major'.
-    That filter is applied when the data is added to database.*
-'''
 def test_open_workbook():
     dataframe = main.open_workbook()
     results_rows = dataframe.shape[0]
@@ -73,6 +78,8 @@ def test_create_table_states():
     assert result == None
 
 
+
+
 def test_write_to_state_db():
     conn, cursor = main.open_db('test_db.sqlite')
     dataframe = main.open_workbook()
@@ -84,3 +91,19 @@ def test_write_to_state_db():
     result = cursor.fetchone()
 
     assert result == ('Alabama',)
+
+
+def test_compare_students_to_jobs():
+    results = main.compare_school_data_with_state_data(current_database)
+    specific_state_results_students = results[0]['students']
+    specific_state_results_state = results[2]
+
+    assert results != None
+    assert specific_state_results_students > 100000
+    assert specific_state_results_state != "Pizza Hut"
+
+
+
+if __name__ == '__main__':
+    create_schools_db()
+    create_state_db()

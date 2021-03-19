@@ -4,8 +4,6 @@ import requests
 import secrets
 import sqlite3
 import openpyxl
-import sys
-import PySide2.QtWidgets
 import us_state_abrev
 import main_window_stacked
 
@@ -13,7 +11,7 @@ import main_window_stacked
 
 
 
-
+current_database = ("collegescorecard.sqlite")
 # excel_file = "PATH "
 excel_file = "state_M2019_dl.xlsx"
 final_data = []
@@ -111,15 +109,16 @@ def setup_state_db(cursor: sqlite3.Cursor):
     )
 
 
-def make_initial_state():
-    conn, cursor = open_db("collegescorecard.sqlite")
+def make_initial_state(database):
+    conn, cursor = open_db(database)
     dataframe = open_workbook()
 
     dataframe.to_sql('states', conn, if_exists='append', index=False)
     close_db(conn)
 
 
-def execute_school_db():
+def execute_school_db(database):
+    database = current_database
     url = (f"https://api.data.gov/ed/collegescorecard/v1/schools.json?school.degrees_awarded.predominant=2,3&fields=id,"
            f"school.state,school.name,school.city,2018.student.size,2017.student.size,"
            f"2017.earnings.3_yrs_after_completion.overall_count_over_poverty_line,"
@@ -128,20 +127,21 @@ def execute_school_db():
     line_counter = 1
 
     for school_data in all_data:
-        print(line_counter, ": ", school_data)
+        #print(line_counter, ": ", school_data)
         line_counter += 1
 
-    conn, cursor = open_db("collegescorecard.sqlite")
+    conn, cursor = open_db(database)
     print(type(conn))
     setup_school_db(cursor)
     make_initial_schools(cursor)
     close_db(conn)
 
 
-def execute_state_db():
-    conn, cursor = open_db("collegescorecard.sqlite")
+def execute_state_db(database):
+    database = current_database
+    conn, cursor = open_db(database)
     setup_state_db(cursor)
-    make_initial_state()
+    make_initial_state(database)
     close_db(conn)
 
 
@@ -155,22 +155,23 @@ def data_frame_to_list(dataframe):
 
     return dict_list
 
-def compare_school_data_with_state_data():
+
+def compare_school_data_with_state_data(database):
     comparison = []
     states_list = us_state_abrev.list_of_state_abbrev
     for states in states_list:
-        jobs_dict = get_jobs_in_a_state(states)
-        students_dict = get_college_students_in_a_state(states)
+        jobs_dict = get_jobs_in_a_state(states, database)
+        students_dict = get_college_students_in_a_state(states, database)
         jobs_dict.update(students_dict)
         jobs_dict["More Jobs than Students"] = round((jobs_dict['jobs'] / jobs_dict['students']),2)
         comparison.append(jobs_dict)
     return comparison
 
 
-def get_college_students_in_a_state(state):
+def get_college_students_in_a_state(state, database):
     students_in_state = 0
     state = "'" + state + "'"
-    conn, cursor = open_db("collegescorecard.sqlite")
+    conn, cursor = open_db(database)
 
     cursor.execute(f'''SELECT student_size_2018
                         FROM schools
@@ -193,12 +194,12 @@ def get_college_students_in_a_state(state):
     return final_students_in_state
 
 
-def get_jobs_in_a_state(state):
+def get_jobs_in_a_state(state, database):
     state = state
     num_jobs = []
     jobs_in_state = 0
     final_jobs_in_state = {}
-    onn, cursor = open_db("collegescorecard.sqlite")
+    conn, cursor = open_db(database)
     abbrev_of_state = us_state_abrev.abbrev_us_state[state]
     abbrev_of_state = "'" + abbrev_of_state + "'"
 
@@ -219,13 +220,18 @@ def get_jobs_in_a_state(state):
     final_jobs_in_state = {'state': state, "jobs": int(jobs_in_state), "More Jobs than Students": 0}
     return final_jobs_in_state
 
-
+def get_compare_school_data_with_state_data():
+    results = compare_school_data_with_state_data()
+    specific_results = results['state']
+    return results
 
 
 
 
 def main():
-    main_window_stacked.main()
-
+    #main_window_stacked.main()
+    execute_school_db(current_database)
+    execute_state_db(current_database)
+    print(compare_school_data_with_state_data(current_database))
 if __name__ == '__main__':
     main()
