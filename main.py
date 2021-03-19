@@ -238,29 +238,21 @@ def get_school_3_year_cohort(state, database):
                             FROM schools
                             WHERE school_state = {state}''')
     school_state = cursor.fetchall()
+    number_of_schools = len(school_state)
 
-    for data in school_state:
-        num = []
-        data = str(data)
-        for char in data:
-            if char.isdigit():
-                num.append(char)
-            else:
-                continue
-
-        if num:
-            students_in_state = students_in_state + int(''.join(num))
-    state = state.replace('"', '')
-    final_students_in_state = {'state': state, "students": int(students_in_state // 4), "More Jobs than Students": 0}
-    return final_students_in_state
+    #num = list(sum(school_state))
+    #average = num / number_of_schools
+    #state_cohort_average_dict = {'state': state, "cohort": average, "Cohort/25% Salary": 0}
+    return number_of_schools
 
 
 
 
 def main():
     #main_window_stacked.main()
-    execute_school_db(current_database)
-    execute_state_db(current_database)
-    print(compare_school_data_with_state_data(current_database))
+    #execute_school_db(current_database)
+    #execute_state_db(current_database)
+    #print(compare_school_data_with_state_data(current_database))
+    print(get_school_3_year_cohort('MA', current_database))
 if __name__ == '__main__':
     main()
