@@ -9,7 +9,8 @@ import PySide2.QtWidgets
 from PySide2.QtWidgets import QApplication
 import window
 import us_state_abrev
-import test_gui
+import main_window_stacked
+
 
 
 
@@ -221,13 +222,13 @@ def get_jobs_in_a_state(state):
     return final_jobs_in_state
 
 
-def display_data(data):
+def display_data():
     '''app = PySide2.QtWidgets.QApplication(sys.argv)
     win = visualizer_window.Visualizer_window(data)
     sys.exit(app.exec_())'''
 
     app = PySide2.QtWidgets.QApplication(sys.argv)
-    win = window.Window(data)
+    win = main_window_stacked.MainWindow()
     sys.exit(app.exec_())
 
 
@@ -239,13 +240,14 @@ def main():
     #execute_school_db()
     #execute_state_db()
 
-    data = compare_school_data_with_state_data()
+    #data = compare_school_data_with_state_data()
     #print(data)
-    display_data(data)
+    #display_data(data)
     #test_gui(data)
     #print(get_college_students_in_a_state('MA'))
     #print(get_jobs_in_a_state('MA'))
     #print(compare_school_data_with_state_data())
+    main_window_stacked.main()
 
 if __name__ == '__main__':
     main()

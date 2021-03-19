@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2d8dd55-1311-41c0-9299-56c8571fb04a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/collegescorecard.sqlite" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_window_stacked.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_window_stacked.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +59,7 @@
       <recent name="C:\Users\rcame\PycharmProjects\Ryan_Cameron_Project_1\tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main_window_stacked">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Ryan_Cameron_Project_1" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -270,8 +274,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main_window_stacked" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.main_window_stacked" />
         <item itemvalue="Python.test_gui" />
         <item itemvalue="Python.visualizer_window" />
         <item itemvalue="Python.visualizer_windown" />
@@ -296,7 +300,7 @@
       <workItem from="1615697776682" duration="782000" />
       <workItem from="1615743652573" duration="18692000" />
       <workItem from="1615816804296" duration="565000" />
-      <workItem from="1615817932746" duration="55218000" />
+      <workItem from="1615817932746" duration="62131000" />
     </task>
     <task id="LOCAL-00001" summary="Added field parameter &quot;school.city&quot;">
       <created>1612626455012</created>
@@ -466,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616041718530</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Added ascending and descending views of data, updated main window">
+      <created>1616077773893</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1616077773893</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -495,7 +506,8 @@
     <MESSAGE value="Created tests for test_create_table_states() and test_write_to_state_db()" />
     <MESSAGE value="Create window.py" />
     <MESSAGE value="create color coded list view of data" />
-    <option name="LAST_COMMIT_MESSAGE" value="create color coded list view of data" />
+    <MESSAGE value="Added ascending and descending views of data, updated main window" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ascending and descending views of data, updated main window" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$visualizer_windown.coverage" NAME="visualizer_windown Coverage Results" MODIFIED="1615905748181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -504,7 +516,7 @@
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$visualizer_window.coverage" NAME="visualizer_window Coverage Results" MODIFIED="1615906319828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$pytest_for_test_prod_test_create_table.coverage" NAME="pytest for test_prod.test_create_table Coverage Results" MODIFIED="1614552608777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$pytest_for_test_prod_test_work_book.coverage" NAME="pytest for test_prod.test_work_book Coverage Results" MODIFIED="1614557223109" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$main_window_stacked.coverage" NAME="main_window_stacked Coverage Results" MODIFIED="1616077698125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$main_window_stacked.coverage" NAME="main_window_stacked Coverage Results" MODIFIED="1616109304537" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$pytest_for_test_prod_test_table_create.coverage" NAME="pytest for test_prod.test_table_create Coverage Results" MODIFIED="1614138184372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$test_gui.coverage" NAME="test_gui Coverage Results" MODIFIED="1616032823732" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$graph.coverage" NAME="graph Coverage Results" MODIFIED="1614306676792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../game3" />
@@ -515,7 +527,7 @@
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$pytest_for_test_prod_test_schools_table_create.coverage" NAME="pytest for test_prod.test_schools_table_create Coverage Results" MODIFIED="1614559323934" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$pytest_for_test_prod_test_get_data.coverage" NAME="pytest for test_prod.test_get_data Coverage Results" MODIFIED="1613524831515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$pytest_for_test_prod_test_open_workbook.coverage" NAME="pytest for test_prod.test_open_workbook Coverage Results" MODIFIED="1615783029837" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$main.coverage" NAME="main Coverage Results" MODIFIED="1616036372433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$main.coverage" NAME="main Coverage Results" MODIFIED="1616112434628" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$pytest_for_test_prod_test_create_empty_database.coverage" NAME="pytest for test_prod.test_create_empty_database Coverage Results" MODIFIED="1614559286181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
   </component>
 </project>
