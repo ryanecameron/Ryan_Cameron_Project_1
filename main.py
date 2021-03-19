@@ -225,6 +225,35 @@ def get_compare_school_data_with_state_data():
     specific_results = results['state']
     return results
 
+def compare_3_yr_grad_cohort_and_25_pct_salary():
+    pass
+
+
+def get_school_3_year_cohort(state, database):
+    students_in_state = 0
+    state = "'" + state + "'"
+    conn, cursor = open_db(database)
+
+    cursor.execute(f'''SELECT repayment_cohort_2016
+                            FROM schools
+                            WHERE school_state = {state}''')
+    school_state = cursor.fetchall()
+
+    for data in school_state:
+        num = []
+        data = str(data)
+        for char in data:
+            if char.isdigit():
+                num.append(char)
+            else:
+                continue
+
+        if num:
+            students_in_state = students_in_state + int(''.join(num))
+    state = state.replace('"', '')
+    final_students_in_state = {'state': state, "students": int(students_in_state // 4), "More Jobs than Students": 0}
+    return final_students_in_state
+
 
 
 

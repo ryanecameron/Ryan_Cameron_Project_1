@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2d8dd55-1311-41c0-9299-56c8571fb04a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/collegescorecard.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collegescorecard.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/collegescorecard.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_db.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_db.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/collegescorecard.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/tests/collegescorecard.sqlite" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test_prod.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test_prod.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +58,7 @@
       <recent name="C:\Users\rcame\PycharmProjects\Ryan_Cameron_Project_1\tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest for test_prod.test_write_to_state_db">
+  <component name="RunManager" selected="Python.test_prod">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Ryan_Cameron_Project_1" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -270,8 +268,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest for test_prod.test_compare_students_to_jobs" />
         <item itemvalue="Python.test_prod" />
+        <item itemvalue="Python tests.pytest for test_prod.test_compare_students_to_jobs" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python.main_window_stacked" />
         <item itemvalue="Python.test_gui" />
@@ -297,7 +295,7 @@
       <workItem from="1615743652573" duration="18692000" />
       <workItem from="1615816804296" duration="565000" />
       <workItem from="1615817932746" duration="62648000" />
-      <workItem from="1616114346605" duration="8115000" />
+      <workItem from="1616114346605" duration="8872000" />
     </task>
     <task id="LOCAL-00001" summary="Added field parameter &quot;school.city&quot;">
       <created>1612626455012</created>
@@ -488,14 +486,20 @@
       <option name="project" value="LOCAL" />
       <updated>1616113203088</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="created test for data analyis comparing state jobs to graduates.">
+      <created>1616122755926</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1616122755926</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Initial commit." />
     <MESSAGE value="Added field parameter &quot;school.city&quot;" />
     <MESSAGE value="Increased number of pages from 20 to 100" />
     <MESSAGE value="Returns all 3203 pages of data." />
@@ -520,7 +524,8 @@
     <MESSAGE value="Added ascending and descending views of data, updated main window" />
     <MESSAGE value="User can now choose list or map view" />
     <MESSAGE value="removed PySide2" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed PySide2" />
+    <MESSAGE value="created test for data analyis comparing state jobs to graduates." />
+    <option name="LAST_COMMIT_MESSAGE" value="created test for data analyis comparing state jobs to graduates." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$visualizer_windown.coverage" NAME="visualizer_windown Coverage Results" MODIFIED="1615905748181" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -536,7 +541,7 @@
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$graph.coverage" NAME="graph Coverage Results" MODIFIED="1614306676792" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../game3" />
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$eliza_2.coverage" NAME="eliza_2 Coverage Results" MODIFIED="1614306494084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../COMP_370" />
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$pytest_for_test_prod_test_create_table_states.coverage" NAME="pytest for test_prod.test_create_table_states Coverage Results" MODIFIED="1616118905691" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$test_prod.coverage" NAME="test_prod Coverage Results" MODIFIED="1616122083390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$test_prod.coverage" NAME="test_prod Coverage Results" MODIFIED="1616123424677" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$pytest_for_test_prod_test_create_database.coverage" NAME="pytest for test_prod.test_create_database Coverage Results" MODIFIED="1613620403241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$pytest_for_test_prod_test_schools_table_create.coverage" NAME="pytest for test_prod.test_schools_table_create Coverage Results" MODIFIED="1616118121785" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/Ryan_Cameron_Project_1$pytest_for_test_prod_test_get_data.coverage" NAME="pytest for test_prod.test_get_data Coverage Results" MODIFIED="1613524831515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
