@@ -303,22 +303,25 @@ def create_map():
     for item in data:
         state = item['state']
         str(state)
-        state.translate(str.maketrans('','',string.punctuation))
-        print(state)
+        filtered_states = []
+        for idx in state:
+            letters = []
+            if(idx.isalpha()):
+                letters.append(idx)
+                filtered_states.append(''.join(letters))
+
+        item['state'] = ''.join(filtered_states)
     dataframe = pd.DataFrame(data)
-    #print(dataframe.head())
-    #print(dataframe["Cohort/25% Salary"])
     fig = plotly.express.choropleth(dataframe,
                                     locations='state',
                                     featureidkey='Cohort/25% Salary.state',
                                     color='Cohort/25% Salary',
                                     scope="usa",
-                                    hover_name= 'state',
-                                    range_color=(0,110000))
+                                    hover_name='cohort',
+                                    range_color=(0, 110000))
+    fig.update_layout(title_text="Cohort / 25% Salary")
     #plotly.offline.plot(fig, filename='map.html', auto_open=True)
-
-
-    #return dataframe
+    return fig
 
 
 
